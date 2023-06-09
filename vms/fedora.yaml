@@ -16,7 +16,7 @@ metadata:
     app: fedora-gitops1
     vm.kubevirt.io/template: fedora-server-small
     vm.kubevirt.io/template.revision: "1"
-    vm.kubevirt.io/template.version: v0.14.0
+    vm.kubevirt.io/template.version: v0.25.0
   name: fedora-gitops1
 spec:
   dataVolumeTemplates:
@@ -30,7 +30,7 @@ spec:
         - ReadWriteOnce
         resources:
           requests:
-            storage: 30Gi
+            storage: 32Gi
         storageClassName: lvms-vg-immediate
       source:
         pvc:
