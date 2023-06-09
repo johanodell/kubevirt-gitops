@@ -34,7 +34,7 @@ spec:
         storageClassName: lvms-vg-immediate
       source:
         pvc:
-          name: fedora
+          name: fedora-f7cc15256f08
           namespace: openshift-virtualization-os-images
   running: true
   template:
