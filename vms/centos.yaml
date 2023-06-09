@@ -36,7 +36,7 @@ items:
           storageClassName: lvms-vg-immediate
         source:
           pvc:
-            name: centos8
+            name: centos-stream8-29ad8fdc21a6
             namespace: openshift-virtualization-os-images
     running: true
     template:
