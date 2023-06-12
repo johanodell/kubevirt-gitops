@@ -33,7 +33,7 @@ items:
           resources:
             requests:
               storage: 32Gi
-          storageClassName: lvms-vg-immediate
+          storageClassName: vroom
         source:
           pvc:
             name: centos-stream8-29ad8fdc21a6

@@ -31,7 +31,7 @@ spec:
         resources:
           requests:
             storage: 32Gi
-        storageClassName: lvms-vg-immediate
+        storageClassName: vroom
       source:
         pvc:
           name: fedora-f7cc15256f08
