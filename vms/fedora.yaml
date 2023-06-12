@@ -69,7 +69,7 @@ spec:
           type: pc-q35-rhel8.4.0
         resources:
           requests:
-            memory: 3Gi
+            memory: 2Gi
       evictionStrategy: LiveMigrate
       networks:
       - name: default
