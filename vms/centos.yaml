@@ -85,7 +85,7 @@ items:
             userData: |-
               #cloud-config
               user: centos
-              password: 30jt-pghb-jj0i
+              password: redhat123!
               chpasswd: { expire: False }
           name: cloudinitdisk
 kind: List

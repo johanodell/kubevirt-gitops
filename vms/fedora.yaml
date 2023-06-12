@@ -83,6 +83,6 @@ spec:
           userData: |-
             #cloud-config
             user: fedora
-            password: vr3x-xos0-gntb
+            password: redhat123! 
             chpasswd: { expire: False }
         name: cloudinitdisk
