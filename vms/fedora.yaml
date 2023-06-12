@@ -63,6 +63,9 @@ spec:
           interfaces:
           - masquerade: {}
             name: default
+          - bridge: {}
+            model: virtio
+            name: eth1
           networkInterfaceMultiqueue: true
           rng: {}
         machine:
@@ -74,6 +77,9 @@ spec:
       networks:
       - name: default
         pod: {}
+      - multus: 
+          networkName: default/external-network
+        name: eth1
       terminationGracePeriodSeconds: 180
       volumes:
       - dataVolume:
