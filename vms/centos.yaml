@@ -63,10 +63,10 @@ items:
                 bus: virtio
               name: cloudinitdisk
             interfaces:
-#            - masquerade: {}
-#              name: default
-            - bridge {}
-              name: eth1
+            - masquerade: {}
+              name: default
+#            - bridge {}
+#              name: eth1
             networkInterfaceMultiqueue: true
             rng: {}
           machine:
@@ -76,11 +76,11 @@ items:
               memory: 2Gi
         evictionStrategy: LiveMigrate
         networks:
-#        - name: default
-#          pod: {}
-        - multus: 
-            networkName: default/external-network
-          name: eth1
+        - name: default
+          pod: {}
+#        - multus: 
+#            networkName: default/external-network
+#          name: eth1
         terminationGracePeriodSeconds: 180
         volumes:
         - dataVolume:
