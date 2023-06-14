@@ -61,8 +61,8 @@ spec:
               bus: virtio
             name: cloudinitdisk
           interfaces:
-          - masquerade: {}
-            name: default
+#          - masquerade: {}
+#            name: default
           - bridge: {}
             model: virtio
             name: eth1
@@ -75,8 +75,8 @@ spec:
             memory: 2Gi
       evictionStrategy: LiveMigrate
       networks:
-      - name: default
-        pod: {}
+#      - name: default
+#        pod: {}
       - multus: 
           networkName: default/external-network
         name: eth1
