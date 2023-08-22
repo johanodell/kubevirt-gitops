@@ -36,7 +36,7 @@ items:
           storageClassName: vroom
         source:
           pvc:
-            name: centos-stream8-29ad8fdc21a6
+            name: centos-stream8-b9b768dcd73b
             namespace: openshift-virtualization-os-images
     running: true
     template:
