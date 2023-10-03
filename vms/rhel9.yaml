@@ -36,8 +36,8 @@ items:
           storageClassName: vroom
         source:
           pvc:
-            name: rhel92
-            namespace: 00-infra-vms 
+            name: rhel9-a1947a1edca5
+            namespace: openshift-virtualization-os-images
     running: true
     template:
       metadata:
