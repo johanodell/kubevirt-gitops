@@ -36,8 +36,8 @@ items:
           storageClassName: vroom
         source:
           pvc:
-            name: rhel9-a1947a1edca5
-            namespace: openshift-virtualization-os-images
+            name: rhel92
+            namespace: kubevirt-gitops
     running: true
     template:
       metadata:
@@ -46,7 +46,7 @@ items:
           vm.kubevirt.io/os: rhel9
           vm.kubevirt.io/workload: server
         labels:
-          kubevirt.io/domain: centos-gitops1
+          kubevirt.io/domain: rhel9-gitops1
           kubevirt.io/size: small
       spec:
         domain:
@@ -89,7 +89,7 @@ items:
         - cloudInitNoCloud:
             userData: |-
               #cloud-config
-              user: centos
+              user: johan 
               password: redhat123!
               chpasswd: { expire: False }
           name: cloudinitdisk
