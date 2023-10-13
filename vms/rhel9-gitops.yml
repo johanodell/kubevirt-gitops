@@ -59,7 +59,7 @@ items:
             disks:
             - disk:
                 bus: virtio
-              name: rhel9-gitops1
+              name: rhel9-gitops2
             - disk:
                 bus: virtio
               name: cloudinitdisk
