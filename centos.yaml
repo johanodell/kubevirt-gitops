@@ -15,17 +15,17 @@ items:
           }
         ]
     labels:
-      app: rhel9-gitops1
-      vm.kubevirt.io/template: rhel9-server-small
+      app: centos-gitops1
+      vm.kubevirt.io/template: centos8-server-small
       vm.kubevirt.io/template.revision: "1"
       vm.kubevirt.io/template.version: v0.14.0
-    name: rhel9-gitops1
+    name: centos-gitops1
   spec:
     dataVolumeTemplates:
     - apiVersion: cdi.kubevirt.io/v1beta1
       kind: DataVolume
       metadata:
-        name: rhel9-gitops1
+        name: centos-gitops1
       spec:
         pvc:
           accessModes:
@@ -36,19 +36,18 @@ items:
           storageClassName: vroom
         source:
           pvc:
-            name: rhel92
-            namespace: kubevirt-gitops
+            name: centos-stream8-b9b768dcd73b
+            namespace: openshift-virtualization-os-images
     running: true
     template:
       metadata:
         annotations:
           vm.kubevirt.io/flavor: small
-          vm.kubevirt.io/os: rhel9
+          vm.kubevirt.io/os: centos8
           vm.kubevirt.io/workload: server
         labels:
-          kubevirt.io/domain: rhel9-gitops1
+          kubevirt.io/domain: centos-gitops1
           kubevirt.io/size: small
-          app: webfront
       spec:
         domain:
           cpu:
@@ -59,15 +58,15 @@ items:
             disks:
             - disk:
                 bus: virtio
-              name: rhel9-gitops1
+              name: centos-gitops1
             - disk:
                 bus: virtio
               name: cloudinitdisk
             interfaces:
-            - name: default
-              masquerade: {}
-            - name: lab-network
-              bridge: {}
+            - masquerade: {}
+              name: default
+#            - bridge {}
+#              name: eth1
             networkInterfaceMultiqueue: true
             rng: {}
           machine:
@@ -79,23 +78,20 @@ items:
         networks:
         - name: default
           pod: {}
-        - name: lab-network 
-          multus:
-            networkName: lab-network
+#        - multus: 
+#            networkName: default/external-network
+#          name: eth1
         terminationGracePeriodSeconds: 180
         volumes:
         - dataVolume:
-            name: rhel9-gitops1
-          name: rhel9-gitops1
+            name: centos-gitops1
+          name: centos-gitops1
         - cloudInitNoCloud:
             userData: |-
               #cloud-config
-              user: johan
-              groups: wheel 
+              user: centos
               password: redhat123!
               chpasswd: { expire: False }
-              shell: /bin/bash  
-              sudo: ALL=(ALL) NOPASSWD:ALL
           name: cloudinitdisk
 kind: List
 metadata: {}

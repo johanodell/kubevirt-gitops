@@ -2,4 +2,3 @@ resources:
 - centos.yaml
 - fedora.yaml
 - rhel9.yaml
-- rhel9-gitops.yml
