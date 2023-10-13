@@ -96,6 +96,10 @@ items:
               chpasswd: { expire: False }
               shell: /bin/bash  
               sudo: ALL=(ALL) NOPASSWD:ALL
+            write_files:
+              - path: /etc/ssh/sshd_config.d/password-auth.conf
+                content: |
+                  PasswordAuthentication yes
           name: cloudinitdisk
 kind: List
 metadata: {}
