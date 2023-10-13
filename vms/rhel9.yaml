@@ -96,6 +96,8 @@ items:
               chpasswd: { expire: False }
               shell: /bin/bash  
               sudo: ALL=(ALL) NOPASSWD:ALL
+              ssh-authorized-keys:
+                - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDEAXPfU8D1uWkRYBD5OzqH7zvIGAANzgKmpzO0X3ZkVtL2SQZRFeMpOAuU9hnolnXSHKL11e2dSKeVAo2/MFFVI6k8Sm8O08uTzhIGYN2WBT/M7FUI9/vNbN51ofkMt2ukIKAZXxDTUKOPQlkWLd5qXAArXnITJD3GBgn0sOVdBsa/aEQDdbJbiAFW3vbPCHSQk8NfCS35m4u+1AbtX6skXflq61RaUeDnYjuGlHdyQYAGO1jztRU5Xh19Uv+Bs+kFWLsezjGerSi21bnn37yLOAWcc5Ob/ENEpLhX1rcp6pWkkygd5Na0Kar6Yh7l9jW3KAFtlwgqRzEkNqVGuls9+343xlPBprbIYDnKK8K7wuTW9/p6Mo2oNpokEaOYnXHLmxApr59hWAf2NO55N1rjM3xIxvSGPBJtnhfOy+WStfvwbp4CzzU3VAOjw5QdF7URSj31cXzA8LHRR5IR3cUZFQtxEw+TlF0A8prk1a8XJANfQO5/3+nsTaFw7O7MuXs= 
             write_files:
               - path: /etc/ssh/sshd_config.d/password-auth.conf
                 content: |
