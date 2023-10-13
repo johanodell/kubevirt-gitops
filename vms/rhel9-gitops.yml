@@ -85,8 +85,8 @@ items:
         terminationGracePeriodSeconds: 180
         volumes:
         - dataVolume:
-            name: rhel9-gitops1
-          name: rhel9-gitops1
+            name: rhel9-gitops2
+          name: rhel9-gitops2
         - cloudInitNoCloud:
             userData: |-
               #cloud-config
