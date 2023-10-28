@@ -48,7 +48,7 @@ items:
         labels:
           kubevirt.io/domain: rhel9-gitops1
           kubevirt.io/size: small
-          app: webfront
+          app: techupdate 
       spec:
         domain:
           cpu:
