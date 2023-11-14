@@ -91,8 +91,8 @@ items:
             userData: |-
               #cloud-config
               user: johan
-              groups: wheel 
-#              password: redhat123!
+#              groups: wheel 
+              password: redhat123!
               chpasswd: { expire: False }
 #              shell: /bin/bash  
 #              sudo: ALL=(ALL) NOPASSWD:ALL
