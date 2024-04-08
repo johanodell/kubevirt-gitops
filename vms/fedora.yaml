@@ -36,7 +36,7 @@ spec:
         pvc:
           name: fedora-bbc58d0576a2 
           namespace: openshift-virtualization-os-images
-  running: true
+  running: false 
   template:
     metadata:
       annotations:
