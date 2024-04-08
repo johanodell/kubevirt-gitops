@@ -34,7 +34,7 @@ spec:
         storageClassName: vroom
       source:
         pvc:
-          name: fedora-bbc58d0576a2 
+          name: fedora-bbc58d0576a22 
           namespace: openshift-virtualization-os-images
   running: false 
   template:
