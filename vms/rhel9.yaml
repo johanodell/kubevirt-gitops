@@ -38,7 +38,7 @@ items:
           pvc:
             name: rhel9-b2c52ac49e20
             namespace: openshift-virtualization-os-images
-    running: false 
+    running: true 
     template:
       metadata:
         annotations:
