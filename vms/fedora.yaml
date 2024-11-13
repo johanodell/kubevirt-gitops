@@ -31,7 +31,7 @@ spec:
         resources:
           requests:
             storage: 32Gi
-        storageClassName: vroom
+        storageClassName: ssd-storage
       source:
         pvc:
           name: fedora-b476c72dcf47 
@@ -78,7 +78,7 @@ spec:
       - name: default
         pod: {}
       - multus: 
-          networkName: kubevirt-gitops/flatnetwork
+          networkName: kubevirt-gitops/labnet
         name: eth1
       terminationGracePeriodSeconds: 180
       volumes:
