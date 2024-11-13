@@ -3,6 +3,8 @@ kind: NetworkAttachmentDefinition
 metadata:
   annotations:
     k8s.v1.cni.cncf.io/resourceName: bridge.network.kubevirt.io/br1
+    labels:
+      app.kubernetes.io/instance: vms
   name: labnet
   namespace: kubevirt-gitops
 spec:
