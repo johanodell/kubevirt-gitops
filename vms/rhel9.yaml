@@ -33,10 +33,10 @@ items:
           resources:
             requests:
               storage: 32Gi
-          storageClassName: vroom
+          storageClassName: ssd-storage
         source:
           pvc:
-            name: rhel9-b2c52ac49e20
+            name: rhel9-2dd40a239dc2
             namespace: openshift-virtualization-os-images
     running: true 
     template:
@@ -66,7 +66,7 @@ items:
             interfaces:
             - name: default
               masquerade: {}
-            - name: flatnetwork
+            - name: labnet
               bridge: {}
             networkInterfaceMultiqueue: true
             rng: {}
@@ -79,9 +79,9 @@ items:
         networks:
         - name: default
           pod: {}
-        - name: flatnetwork 
+        - name: labnet 
           multus:
-            networkName: flatnetwork
+            networkName: labnet
         terminationGracePeriodSeconds: 180
         volumes:
         - dataVolume:
