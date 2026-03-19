@@ -1,0 +1,46 @@
+inhibit_rules:
+- equal:
+  - namespace
+  - alertname
+  source_matchers:
+  - severity = critical
+  target_matchers:
+  - severity =~ warning|info
+- equal:
+  - namespace
+  - alertname
+  source_matchers:
+  - severity = warning
+  target_matchers:
+  - severity = info
+
+receivers:
+- name: "Default"
+- name: "Watchdog"
+- name: "Critical"
+- name: "AAP-webhook"
+  webhook_configs:
+    - url: 'https://aap-controller-aap.apps.mothershift.codell.io/api/v2/job_templates/18/github/'
+      http_config:
+        bearer_token: 'eBOXCIkZWT8DLUKzxsx4SXFkMF6hVzjix3pszxx4GN0tx9VLkq'
+
+route:
+  group_by: ['alertname', 'namespace']
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 1h
+  receiver: "Default"
+  routes:
+    - matchers:
+      - alertname = VMIFilesystemUsageHigh
+      receiver: AAP-webhook
+    - matchers:
+      - severity = critical
+      receiver: AAP-webhook
+    - matchers:
+      - alertname = Watchdog
+      receiver: Watchdog
+    - matchers:
+      - severity = critical
+      receiver: Critical
+

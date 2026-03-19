@@ -31,12 +31,12 @@ spec:
         resources:
           requests:
             storage: 32Gi
-        storageClassName: ssd-storage
+        storageClassName: lvms-nvme-vg-immediate
       source:
         pvc:
-          name: fedora-b476c72dcf47 
+          name: fedora-b476c72dcf47
           namespace: openshift-virtualization-os-images
-  running: true 
+  running: true
   template:
     metadata:
       annotations:
@@ -61,11 +61,9 @@ spec:
               bus: virtio
             name: cloudinitdisk
           interfaces:
-          - masquerade: {}
-            name: default
+          # Här använder vi nu bridge direkt för vlan251
           - bridge: {}
-            model: virtio
-            name: eth1
+            name: vlan251
           networkInterfaceMultiqueue: true
           rng: {}
         machine:
@@ -75,11 +73,10 @@ spec:
             memory: 2Gi
       evictionStrategy: LiveMigrate
       networks:
-      - name: default
-        pod: {}
-      - multus: 
-          networkName: kubevirt-gitops/labnet
-        name: eth1
+      # Här pekar vi på den specifika NetworkAttachmentDefinition som din playbook använder
+      - multus:
+          networkName: default/vlan251-bridge
+        name: vlan251
       terminationGracePeriodSeconds: 180
       volumes:
       - dataVolume:
