@@ -32,7 +32,7 @@ spec:
           requests:
             storage: 32Gi
         storageClassName: lvms-nvme-vg-immediate
-     sourceRef:
+      sourceRef:
         kind: DataSource
         name: fedora  
         namespace: openshift-virtualization-os-images
