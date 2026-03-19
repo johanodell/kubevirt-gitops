@@ -32,10 +32,10 @@ spec:
           requests:
             storage: 32Gi
         storageClassName: lvms-nvme-vg-immediate
-      source:
-        pvc:
-          name: fedora-b476c72dcf47
-          namespace: openshift-virtualization-os-images
+     sourceRef:
+        kind: DataSource
+        name: fedora  
+        namespace: openshift-virtualization-os-images
   running: true
   template:
     metadata:
@@ -73,7 +73,6 @@ spec:
             memory: 2Gi
       evictionStrategy: LiveMigrate
       networks:
-      # Här pekar vi på den specifika NetworkAttachmentDefinition som din playbook använder
       - multus:
           networkName: default/vlan251-bridge
         name: vlan251
